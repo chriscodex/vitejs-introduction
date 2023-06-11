@@ -11,6 +11,10 @@ import img from './uther.jpg'
 // Estilos para la imagen
 import imageStyles from './image.module.css'
 
+// Importando json
+import data from './data.json'
+import {user} from './data.json'
+
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -28,8 +32,10 @@ document.querySelector('#app').innerHTML = `
     </p>
     <button id="btn">Click!</button>
     <img id="img" />
+    
   </div>
 `
+console.log(JSON.stringify(user));
 
 // Estilo al nuevo botón
 document.getElementById('btn').className = buttonStyles.btn
