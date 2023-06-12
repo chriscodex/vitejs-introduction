@@ -15,6 +15,23 @@ import imageStyles from './image.module.css'
 import data from './data.json'
 import {user} from './data.json'
 
+// Importando typescript
+import suma from './suma.ts'
+
+// Importando modulos
+const modules = import.meta.glob('./modules/*.js')
+
+for (const path in modules) {
+  modules[path] ().then((module) => {
+    module.load()
+  })
+}
+
+// Suma
+console.log(`suma 2 + 3 = ${suma(2, 3)}`);
+
+console.log(modules);
+
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -35,7 +52,9 @@ document.querySelector('#app').innerHTML = `
     
   </div>
 `
-console.log(JSON.stringify(user));
+
+// Json
+// console.log(JSON.stringify(user));
 
 // Estilo al nuevo botón
 document.getElementById('btn').className = buttonStyles.btn
