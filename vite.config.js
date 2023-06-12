@@ -10,20 +10,33 @@ export default defineConfig((command, mode) => {
   console.log(env);
   console.log(env.VITE_NAME);
 
-  if (mode === 'development') {
-    return {
-      server: {
-        port
-      }
-    }
-  } else {
-    return {
-      build: {
-        rollupOptions: {
-          input: {
-            main: resolve(__dirname, 'index.html'),
-            help: resolve(__dirname, 'help', 'help.html')
-          }
+  // if (mode === 'development') {
+  //   return {
+  //     server: {
+  //       port
+  //     }
+  //   }
+  // } else {
+  //   return {
+  //     build: {
+  //       rollupOptions: {
+  //         input: {
+  //           main: resolve(__dirname, 'index.html'),
+  //           help: resolve(__dirname, 'help', 'help.html')
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // Configuración para librerías - npm run build
+  return {
+    build: {
+      lib: {
+        entry: resolve(__dirname, 'lib', 'main.js'),
+        name: 'demo',
+        filename: (format) => {
+          return `demo.${format}.js`
         }
       }
     }
