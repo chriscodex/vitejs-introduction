@@ -3,6 +3,11 @@ import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
 
+// Importando modulo de css
+import buttonStyles from './button.module.css'
+
+console.log(buttonStyles);
+
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -18,7 +23,10 @@ document.querySelector('#app').innerHTML = `
     <p class="read-the-docs">
       Click on the Vite logo to learn more
     </p>
+    <button id="btn">Click!</button>
   </div>
 `
+
+document.getElementById('btn').className = buttonStyles.btn
 
 setupCounter(document.querySelector('#counter'))
