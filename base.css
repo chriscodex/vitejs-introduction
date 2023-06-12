@@ -1,3 +1,7 @@
+/* less file imported */
+@import './lessExample.less';
+
+/* sass file imported */
 @import './sassExample.sass';
 
 body {
