@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
+import { resolve } from 'path'
 
 export default defineConfig((command, mode) => {
   const port = 3000
@@ -10,14 +11,21 @@ export default defineConfig((command, mode) => {
   console.log(env.VITE_NAME);
 
   if (mode === 'development') {
-    console.log('Modo Desarrollo');
+    return {
+      server: {
+        port
+      }
+    }
   } else {
-    console.log('Modo Produccion');
-  }
-  
-  return {
-    server: {
-      port
+    return {
+      build: {
+        rollupOptions: {
+          input: {
+            main: resolve(__dirname, 'index.html'),
+            help: resolve(__dirname, 'help', 'help.html')
+          }
+        }
+      }
     }
   }
 })
